@@ -1,0 +1,16 @@
+package com.ryanair.interconnectingflights.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
+public class DaySchedule {
+
+    private Integer day;
+
+    private List<Flight> flights;
+
+}
