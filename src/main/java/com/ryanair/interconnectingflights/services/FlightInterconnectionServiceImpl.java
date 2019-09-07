@@ -11,6 +11,7 @@ import com.ryanair.interconnectingflights.model.DaySchedule;
 import com.ryanair.interconnectingflights.model.Flight;
 import com.ryanair.interconnectingflights.model.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -32,6 +33,7 @@ public class FlightInterconnectionServiceImpl implements FlightInterconnectionSe
     @Autowired
     private RyanairClient ryanairClient;
 
+    @Cacheable(value = "interconnectingFlights", unless = "#result==null")
     public List<FlightInterconnection> getInterconnectingFlights(String departureCode, String arrivalCode,
                                                                  LocalDateTime departureDateTime,
                                                                  LocalDateTime arrivalDateTime) {

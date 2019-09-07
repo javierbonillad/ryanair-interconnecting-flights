@@ -12,7 +12,7 @@ public class CacheConfiguration {
 
     @Bean
     public CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("availableRoutes", "scheduleByIataAndDate");
+        return new ConcurrentMapCacheManager("availableRoutes", "scheduleByIataAndDate", "interconnectingFlights");
     }
 
 }
