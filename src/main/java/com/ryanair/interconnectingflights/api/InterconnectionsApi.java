@@ -19,8 +19,8 @@ public interface InterconnectionsApi {
     @ApiOperation(value = "Find flights interconnections", nickname = "interconnections", notes = "Returns direct and interconnected flights given a departure and arrival airport as well as departure and arrival date", tags = {"interconnections",}, response = FlightInterconnection.class, responseContainer = "List")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful operation", response = FlightInterconnection.class, responseContainer = "List"),
-            @ApiResponse(code = 400, message = "Invalid request params", response = ApiError.class, responseContainer = "List"),
-            @ApiResponse(code = 404, message = "Interconnections not found")})
+            @ApiResponse(code = 400, message = "Invalid request params", response = ApiError.class),
+            @ApiResponse(code = 404, message = "Interconnections not found", response = ApiError.class)})
     @RequestMapping(value = "api/v1/interconnections",
             produces = {"application/json"},
             method = RequestMethod.GET)
